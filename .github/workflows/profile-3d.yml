@@ -34,5 +34,8 @@ jobs:
           git add profile-3d-contrib/
           if ! git diff --cached --quiet; then
             git commit -m "chore: update 3D contribution graph"
-            git push
+            # A re-run may be based on an older commit. Rebase before pushing.
+            git fetch origin main
+            git rebase origin/main
+            git push origin HEAD:main
           fi
