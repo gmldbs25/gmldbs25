@@ -9,6 +9,10 @@ AI Agent, 시뮬레이션, 인터랙티브 콘텐츠에도 관심이 많고, 떠
 
 **생각하고, 만들고, 기록합니다.**
 
+<p align="center">
+  <img src="./profile-3d-contrib/profile-green-animate.svg" alt="3D GitHub contribution calendar" width="100%" />
+</p>
+
 [**Build Canvas — 개발 기록 보러 가기**](https://gmldbs25.github.io/build-canvas/)
 
 ---
