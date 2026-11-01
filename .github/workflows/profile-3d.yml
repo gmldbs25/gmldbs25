@@ -38,7 +38,14 @@ jobs:
           if ! git diff --cached --quiet; then
             git commit -m "chore: update 3D contribution graph"
             # A re-run may be based on an older commit. Rebase before pushing.
-            git fetch origin main
-            git rebase origin/main
-            git push origin HEAD:main
+            for attempt in 1 2 3 4 5; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then
+                exit 0
+              fi
+              sleep 2
+            done
+            echo "Unable to push updated contributions after retries" >&2
+            exit 1
           fi
