@@ -8,10 +8,9 @@ const sites = [
     url: 'https://kotomachi-yoon.vercel.app/',
     path: 'assets/kotomachi.webp',
     prepare: async (page) => {
-      const start = page.getByRole('button', { name: /시작하기|이어하기/ }).first();
-      await start.waitFor({ state: 'visible', timeout: 25000 });
-      await start.click();
-      await page.locator('.game-screen').waitFor({ state: 'visible', timeout: 18000 });
+      // Capture the real title/entry screen, not the in-game station scene.
+      await page.locator('.title-screen').waitFor({ state: 'visible', timeout: 25000 });
+      await page.getByRole('heading', { name: 'KotoMachi' }).waitFor({ state: 'visible', timeout: 10000 });
     },
   },
   {
