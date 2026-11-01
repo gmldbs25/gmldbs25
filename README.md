@@ -17,7 +17,7 @@ AI Agent, 시뮬레이션, 인터랙티브 콘텐츠에도 관심이 많고, 떠
   <tr>
     <td width="50%" valign="top">
       <a href="https://kotomachi-yoon.vercel.app/">
-        <img src="./assets/kotomachi.webp" width="100%" alt="KotoMachi 실제 배포 게임 화면" />
+        <img src="./assets/kotomachi.webp?v=20261101-title" width="100%" alt="KotoMachi 실제 배포 게임 화면" />
       </a>
       <h3><a href="https://kotomachi-yoon.vercel.app/">KotoMachi</a></h3>
       <p>삿포로의 일상을 여행하며 일본어를 배우는 스토리형 2D RPG. 대화, 탐색, 학습을 하나의 작은 세계에 담았습니다.</p>
