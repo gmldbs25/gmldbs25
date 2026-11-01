@@ -11,6 +11,8 @@ const sites = [
       // Capture the real title/entry screen, not the in-game station scene.
       await page.locator('.title-screen').waitFor({ state: 'visible', timeout: 25000 });
       await page.getByRole('heading', { name: 'KotoMachi' }).waitFor({ state: 'visible', timeout: 10000 });
+      // Keep the title artwork unobstructed by the optional PWA install notice.
+      await page.addStyleTag({ content: '.install-guide { display: none !important; }' });
     },
   },
   {
