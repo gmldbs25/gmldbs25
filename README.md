@@ -46,7 +46,7 @@ AI Agent, 시뮬레이션, 인터랙티브 콘텐츠에도 관심이 많고, 떠
 ## Contribution Activity
 
 <p align="center">
-  <img src="./profile-3d-contrib/profile-green-animate.svg?v=20261101045440" alt="3D GitHub contribution calendar" width="100%" />
+  <img src="./profile-3d-contrib/profile-green-animate.svg?v=20261101074526" alt="3D GitHub contribution calendar" width="100%" />
 </p>
 
 ## Tech & Interests
