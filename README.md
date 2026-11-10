@@ -13,6 +13,10 @@ AI Agent, 시뮬레이션, 인터랙티브 콘텐츠에도 관심이 많고, 떠
 
 ### Build Canvas
 
+<a href="https://gmldbs25.github.io/build-canvas/">
+  <img src="./assets/build-canvas.webp?v=20261110" width="100%" alt="Build Canvas 실제 포트폴리오 메인 화면과 Works 목록" />
+</a>
+
 **Interactive Portfolio · Development Stories**
 
 개인 프로젝트의 결과물과 제작 과정을 모아둔 포트폴리오입니다. AI, 게임, 시뮬레이션을 비롯한 작업들을 인터랙티브 콘텐츠와 개발 기록으로 소개합니다.
