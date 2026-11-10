@@ -4,6 +4,17 @@ import sharp from 'sharp';
 
 const sites = [
   {
+    key: 'build-canvas',
+    name: 'Build Canvas',
+    url: 'https://gmldbs25.github.io/build-canvas/',
+    path: 'assets/build-canvas.webp',
+    prepare: async (page) => {
+      await page.locator('#site-title').waitFor({ state: 'visible', timeout: 25000 });
+      await page.locator('.work-list .work-row').first().waitFor({ state: 'visible', timeout: 25000 });
+    },
+  },
+  {
+    key: 'kotomachi',
     name: 'KotoMachi',
     url: 'https://kotomachi-yoon.vercel.app/',
     path: 'assets/kotomachi.webp',
@@ -16,6 +27,7 @@ const sites = [
     },
   },
   {
+    key: 'fabflow',
     name: 'FAB FLOW',
     url: 'https://fabflow-yoon.vercel.app/',
     path: 'assets/fabflow.webp',
@@ -28,6 +40,10 @@ const sites = [
   },
 ];
 
+const target = process.env.SCREENSHOT_TARGET || 'all';
+if (target !== 'all' && !sites.some((site) => site.key === target)) {
+  throw new Error('Unknown screenshot target: ' + target);
+}
 await mkdir('assets', { recursive: true });
 const browser = await chromium.launch({
   headless: true,
@@ -36,6 +52,7 @@ const browser = await chromium.launch({
 
 try {
   for (const site of sites) {
+    if (target !== 'all' && site.key !== target) continue;
     const context = await browser.newContext({
       viewport: { width: 1440, height: 810 },
       deviceScaleFactor: 1,

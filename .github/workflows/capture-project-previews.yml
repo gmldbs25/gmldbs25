@@ -7,6 +7,17 @@ on:
       - .github/scripts/capture-project-previews.mjs
       - .github/workflows/capture-project-previews.yml
   workflow_dispatch:
+    inputs:
+      target:
+        description: 'Which deployed project screen should be refreshed?'
+        type: choice
+        required: true
+        default: build-canvas
+        options:
+          - build-canvas
+          - kotomachi
+          - fabflow
+          - all
 
 permissions:
   contents: write
@@ -29,14 +40,16 @@ jobs:
           npm install --no-save --no-package-lock playwright@1.56.1 sharp@0.34.5
           npx playwright install --with-deps chromium
       - name: Capture real production screens
+        env:
+          SCREENSHOT_TARGET: ${{ inputs.target || 'build-canvas' }}
         run: node .github/scripts/capture-project-previews.mjs
       - name: Commit project screenshots
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/kotomachi.webp assets/fabflow.webp
+          git add assets/build-canvas.webp assets/kotomachi.webp assets/fabflow.webp
           if ! git diff --cached --quiet; then
-            git commit -m "docs: capture live KotoMachi and FAB FLOW previews"
+            git commit -m "docs: capture deployed project previews"
             git fetch origin main
             git rebase origin/main
             git push origin HEAD:main
